@@ -36,7 +36,7 @@
 <script>
 function myFunction() {
   var output = city.value;
-  var key = ""
+  var key = "d8deb97828f1d952b222d105893bbcfc"
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   fetch(proxyurl+"https://api.openweathermap.org/data/2.5/weather?q="+output+"&units=imperial&appid="+key)
   .then(function(resp) {return resp.json() })
