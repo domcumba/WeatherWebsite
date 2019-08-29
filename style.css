@@ -1,3 +1,12 @@
 .jumbotron {
     background-color: #80d4ff!important;
 }
+
+body {
+    background-color: #ffffff
+}
+
+.card {
+  width: 18rem;
+  background-color: #ffffff
+}

@@ -12,26 +12,40 @@
 </head>
 <body>
 
-<div class="jumbotron  jumbotron-fluid text-center">
+<div class="jumbotron text-center">
   <h1>Weather App</h1>
-  <p>Welcome to my project!</p>
+  <h2>Get weather information for any city!</h2>
+  <div class="form-group">
+    <label for="city">Enter City:</label>
+    <input type="text" class="form-control" id="city" name="city">
+    <p></p>
+    <button onclick="myFunction()" type="submit" class="btn" data-toggle="collapse" data-target="#ccard" >Get Weather</button>
+  </div>
 </div>
 
-<div class="form-group">
-  <label for="city">Enter City:</label>
-  <input type="text" class="form-control" id="city" name="city">
-  <button onclick="myFunction()" type="submit" class="btn">Get Weather</button>
+<div class="mx-auto card border-0" id="ccard">
+  <div class="card-body">
+    <h5 class="card-title" id="cityname"></h5>
+    <h6 class="card-text" id="output"></h6>
+    <p class="card-text" id="output2"></p>
+    <p class="card-text" id="output3"></p>
+  </div>
 </div>
+
 
 <script>
 function myFunction() {
   var output = city.value;
+  var key = ""
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
-  fetch(proxyurl+"https://api.openweathermap.org/data/2.5/weather?q="+output+"&appid=d8deb97828f1d952b222d105893bbcfc")
+  fetch(proxyurl+"https://api.openweathermap.org/data/2.5/weather?q="+output+"&units=imperial&appid="+key)
   .then(function(resp) {return resp.json() })
   .then(function(data) {
     console.log(data);
-    document.getElementById("demo").innerHTML = data.weather[0].main;
+    document.getElementById("output").innerHTML = data.weather[0].main;
+    document.getElementById("output2").innerHTML = data.weather[0].description;
+    document.getElementById("cityname").innerHTML = city.value + "  Weather";
+    document.getElementById("output3").innerHTML = data.main.temp;
   })
 }
 </script>
