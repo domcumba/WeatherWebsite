@@ -45,7 +45,7 @@ function myFunction() {
     document.getElementById("output").innerHTML = data.weather[0].main;
     document.getElementById("output2").innerHTML = data.weather[0].description;
     document.getElementById("cityname").innerHTML = city.value + "  Weather";
-    document.getElementById("output3").innerHTML = data.main.temp;
+    document.getElementById("output3").innerHTML = data.main.temp + "°" + "F";
   })
 }
 </script>
